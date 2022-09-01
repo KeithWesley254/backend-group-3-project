@@ -1,5 +1,21 @@
 source "https://rubygems.org"
 
+# A DSL for quickly creating web applications
+# https://github.com/sinatra/sinatra
+gem "sinatra"
+
+# A fast and simple web server
+# https://github.com/macournoyer/thin
+gem "thin"
+
+# Rack middleware. Used specifically for parsing the request body into params.
+# https://github.com/rack/rack-contrib
+gem "rack-contrib"
+
+# More Rack middleware! Used to handle CORS requests
+# https://github.com/cyu/rack-cors
+gem "rack-cors"
+
 #active-record download
 gem "activerecord"
 
@@ -18,6 +34,10 @@ gem "require_all"
 #use pry in the development phase only
 group :development do
   gem "pry"
+
+  # Automatically reload when there are changes
+  # https://github.com/alexch/rerun
+  gem "rerun"
 end
 
 group :development do
