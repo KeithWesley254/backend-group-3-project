@@ -69,6 +69,41 @@ class ApplicationController < Sinatra::Base
     send_it.to_json
   end
 
+  #PUT PORTION
+  put '/students/:id' do
+    fix_it = Student.find(params[:id])
+    review.update(
+      name: params[:name],
+      race: params[:race],
+      planet: params[:planet],
+      course_id: params[:course_id],
+      teacher_id: params[:teacher_id]
+    )
+    fix_it.to_json
+  end
+
+  put '/courses/:id' do
+    fix_it = Course.find(params[:id])
+    fix_it.update(
+      course_name: params[:course_name],
+      fees_amount: params[:fees_amount],
+      department: params[:department],
+      course_period: params[:course_period],
+      total_units: params[:total_units]
+    )
+  end
+
+  put '/teachers/:id' do
+    fix_it = Teacher.find(params[:id])
+    fix_it.update(
+      name: params[:name],
+      street_address: params[:street_address],
+      specialisation: params[:specialisation],
+      salary: params[:salary]
+    )
+    fix_it.to_json
+  end
+
   #PATCH PORTION
   patch '/students/:id' do
     fix_it = Student.find(params[:id])
@@ -82,9 +117,7 @@ class ApplicationController < Sinatra::Base
   patch '/courses/:id' do
     fix_it = Course.find(params[:id])
     fix_it.update(
-      course_name: params[:course_name],
       fees_amount: params[:fees_amount],
-      department: params[:department],
       course_period: params[:course_period],
       total_units: params[:total_units]
     )
