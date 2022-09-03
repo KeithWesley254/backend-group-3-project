@@ -4,17 +4,36 @@ class ApplicationController < Sinatra::Base
   #GET PORTION
   get '/students' do
     all_students = Student.all
-    all_students.to_json
+    all_students.to_json(only: [:id, :name, :race, :planet])
   end
 
   get '/teachers' do
     all_teachers = Teacher.all
-    all_teachers.to_json
+    all_teachers.to_json(only: [:id, :name, :specialisation, :street_address, :salary])
   end
 
   get '/courses' do
     all_courses = Course.all
-    all_courses.to_json
+    all_courses.to_json(only: [:id, :course_name, :course_period, :total_units])
+  end
+
+  get '/students/:id' do
+    single_student = Student.find(params[:id])
+    single_student.to_json(only: [:id, :name, :race, :planet], include: {
+      course: { only: [:course_name]}
+    })
+  end
+
+  get '/teachers/:id' do
+    single_teacher = Teacher.find(params[:id])
+    single_teacher.to_json(only: [:id, :name, :specialisation, :street_address, :salary],
+      include: {students: {only: [:name], include: {course: {only: [:course_name]}}}}
+    )
+  end
+
+  get '/courses/:id' do
+    single_course = Course.find(params[:id])
+    single_course.to_json(only: [:id, :course_name, :course_period, :total_units], include: {students: {only: [:name]}})
   end
 
   #POST PORTION
