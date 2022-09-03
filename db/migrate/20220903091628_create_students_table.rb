@@ -6,6 +6,7 @@ class CreateStudentsTable < ActiveRecord::Migration[7.0]
       t.string :planet
       t.integer :course_id
       t.integer :teacher_id
+      t.timestamps
     end
   end
 end
