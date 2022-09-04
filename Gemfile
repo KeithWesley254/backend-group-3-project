@@ -31,6 +31,8 @@ gem "sqlite3"
 #Require all files in a folder
 gem "require_all"
 
+gem 'uri'
+
 #use pry in the development phase only
 group :development do
   gem "pry"
