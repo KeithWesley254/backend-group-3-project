@@ -33,6 +33,8 @@ gem "require_all"
 
 gem 'uri'
 
+ gem "faker"
+
 #use pry in the development phase only
 group :development do
   gem "pry"
@@ -41,12 +43,6 @@ group :development do
   # Automatically reload when there are changes
   # https://github.com/alexch/rerun
   gem "rerun"
-end
-
-group :development do
-  # Used to generate seed data
-  # https://github.com/faker-ruby/faker
-  gem "faker"
 end
 
 group :production do
