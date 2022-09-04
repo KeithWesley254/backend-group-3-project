@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
 
   #GET PORTION
   get '/' do
-    "Welcome to the Dragonballs Database!!!! <em>Wesley is such a Chad</em>"
+    "Welcome to the Dragonballs Database!!!! Group 3 Board Members"
   end
   get '/students' do
     all_students = Student.all
