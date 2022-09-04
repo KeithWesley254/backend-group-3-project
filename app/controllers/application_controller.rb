@@ -2,6 +2,9 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
   #GET PORTION
+  get '/' do
+    "Welcome to the Dragonballs Database!!!! <em>Wesley is such a Chad<em>"
+  end
   get '/students' do
     all_students = Student.all
     all_students.to_json(only: [:id, :name, :race, :planet])
