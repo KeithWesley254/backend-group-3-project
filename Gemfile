@@ -47,3 +47,7 @@ group :development do
   # https://github.com/faker-ruby/faker
   gem "faker"
 end
+
+group :production do
+    gem "pg"
+end
