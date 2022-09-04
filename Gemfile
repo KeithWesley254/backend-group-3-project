@@ -26,7 +26,7 @@ gem "sinatra-activerecord"
 gem "rake"
 
 #sqlite3 for this database
-gem "sqlite3"
+
 
 #Require all files in a folder
 gem "require_all"
@@ -36,6 +36,7 @@ gem 'uri'
 #use pry in the development phase only
 group :development do
   gem "pry"
+  gem "sqlite3"
 
   # Automatically reload when there are changes
   # https://github.com/alexch/rerun
