@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
   end
   get '/students' do
     all_students = Student.all
-    all_students.to_json(only: [:id, :name, :race, :planet])
+    all_students.to_json(only: [:id, :name, :race, :planet, :course_id, :teacher_id])
   end
 
   get '/teachers' do
