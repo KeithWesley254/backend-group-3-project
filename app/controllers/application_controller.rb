@@ -71,6 +71,11 @@ class ApplicationController < Sinatra::Base
     single_course.to_json(only: [:id, :course_name, :course_period, :total_units, :fees_amount], include: {students: {only: [:name]}})
   end
 
+  get '/courses/edit/:id' do
+    single_course = Course.find(params[:id])
+    single_course.to_json(only: [:id, :course_period, :total_units, :fees_amount], include: {students: {only: [:name]}})
+  end
+
   #POST PORTION
   post '/students' do
     send_it = Student.create(
