@@ -157,6 +157,7 @@ class ApplicationController < Sinatra::Base
   patch '/courses/:id' do
     fix_it = Course.find(params[:id])
     fix_it.update(
+      course_name: params[:course_name]
       fees_amount: params[:fees_amount],
       course_period: params[:course_period],
       total_units: params[:total_units]
